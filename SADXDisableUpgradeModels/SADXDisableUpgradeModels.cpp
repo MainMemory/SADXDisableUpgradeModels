@@ -5,25 +5,25 @@
 #include "..\sadx-mod-loader\SADXModLoader\include\SADXModLoader.h"
 #include "..\mod-loader-common\ModLoaderCommon\IniFile.hpp"
 
-#define upgradecheck(name) bool Disable##name = settings->getBool("", "Disable"#name, true)
+#define upgradecheck(chara,name) bool Disable##name = settings->getBool(#chara, "Disable"#name, true)
 
 extern "C"
 {
 	__declspec(dllexport) void Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		const IniFile *settings = new IniFile(std::string(path) + "\\config.ini");
-		upgradecheck(CrystalRing);
-		upgradecheck(LightShoes);
-		upgradecheck(JetAnklet);
-		upgradecheck(RhythmBadge);
-		upgradecheck(FightingGloves);
-		upgradecheck(ShovelClaw);
-		upgradecheck(LongHammer);
-		upgradecheck(WarriorFeather);
-		upgradecheck(LaserBlaster);
-		upgradecheck(JetBooster);
-		upgradecheck(PowerRod);
-		upgradecheck(LifeRing);
+		upgradecheck(Sonic,CrystalRing);
+		upgradecheck(Sonic,LightShoes);
+		upgradecheck(Tails,JetAnklet);
+		upgradecheck(Tails,RhythmBadge);
+		upgradecheck(Knuckles,FightingGloves);
+		upgradecheck(Knuckles,ShovelClaw);
+		upgradecheck(Amy,LongHammer);
+		upgradecheck(Amy,WarriorFeather);
+		upgradecheck(Gamma,LaserBlaster);
+		upgradecheck(Gamma,JetBooster);
+		upgradecheck(Big,PowerRod);
+		upgradecheck(Big,LifeRing);
 		delete settings;
 		if (DisableCrystalRing && DisableLightShoes)
 			WriteData((char*)0x49BE2B, (char)0xEBu);
