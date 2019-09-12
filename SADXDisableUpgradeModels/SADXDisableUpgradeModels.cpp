@@ -56,9 +56,9 @@ extern "C"
 		if (DisablePowerRod && DisableLifeRing)
 			WriteJump((void*)0x491270, (void*)0x4913BF);
 		else if (DisablePowerRod)
-			WriteJump((void*)0x49137A, (void*)0x4913BF);
+			WriteJump((void*)0x49136E, (void*)0x4913BF);
 		else if (DisableLifeRing)
-			WriteJump((void*)0x491270, (void*)0x49137A);
+			WriteJump((void*)0x491270, (void*)0x49136E);
 		if (DisablePowerRod)
 			WriteData<3>((void*)0x4913CA, 0x90u); // extra instruction
 	}
